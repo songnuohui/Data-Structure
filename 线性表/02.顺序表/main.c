@@ -17,20 +17,20 @@ void InitList(SqList* L) {
 	L->length = 0;
 }
 /*创建一个顺序表,初始化前n个数据*/
-bool CreatList(SqList L,int n) {
+bool CreatList(SqList *L,int n) {
 	if (n<0 || n>MaxSize + 1) {
 		return false;
 	}
 	for (int i = 0; i < n; i++) {
-		scanf("%d", &L.data[i]);
-		L.length++;
+		scanf("%d", &L->data[i]);
+		L->length++;
 	}
 	return true;
 }
 /*遍历顺序表*/
-void SelectAllList(SqList L) {
-	for (int i = 0; i < L.length; i++) {
-		printf("%d", L.data[i]);
+void SelectAllList(SqList *L) {
+	for (int i = 0; i < L->length; i++) {
+		printf("%d", L->data[i]);
 	}
 }
 
@@ -38,7 +38,7 @@ void SelectAllList(SqList L) {
 int main() {
 	SqList L;
 	InitList(&L);
-	CreatList(L, 3);
-	SelectAllList(L);
+	CreatList(&L, 3);
+	SelectAllList(&L);
 	return 0;
 }
