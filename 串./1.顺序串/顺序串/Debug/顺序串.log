@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Users\Song\Desktop\数据结构\4.串\顺序串\顺序串\main.c(33,6): warning C4013: “gets”未定义；假设外部返回 int
+C:\Users\Song\Desktop\数据结构\4.串\顺序串\顺序串\main.c(41,1): warning C4133: “初始化”: 从“int *”到“String *”的类型不兼容
+  顺序串.vcxproj -> C:\Users\Song\Desktop\数据结构\4.串\顺序串\Debug\顺序串.exe
