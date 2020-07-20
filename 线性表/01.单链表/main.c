@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "stdlib.h"
 #include <stdbool.h>
@@ -95,7 +96,7 @@ void InsertList(LinkList L, int i, int e) {
 		s->data = e;
 		s->next = p->next;
 		p->next = s;
-		printf("\n插入元素成功!   ");
+		printf("\n第%d个位置插入元素%d成功!   ",i,e);
 	}
 	else {
 		printf("插入元素失败");
@@ -127,9 +128,9 @@ void delList(LinkList L, int i) {
 void Print(LinkList L) {
 	LinkList p;
 	p = L->next;
-	printf("遍历所有的值为:");
+	printf("\n遍历所有的值为:");
 	while (p) {
-		printf("\n%d", p->data);
+		printf("%d->", p->data);
 		p = p->next;
 	}
 }
@@ -178,10 +179,26 @@ void printn(LinkList L, int n) {
 	}
 	printf("没找到");
 }
+/*原地逆置*/
+void Reserve(LinkList L) {
+	LNode* p, * r;
+	p = L->next;
+	L->next = NULL;
+	printf("\n原地逆置：");
+	while (p != NULL) {
+		r = p->next;
+		p->next = L->next;
+		L->next = p;
+		p = r;
+	}
+}
+
+
 int main() {
 	LNode L;
 	InitList(&L);
 	//List_HeadInsert(&L);
+	printf("输入数据，输入999表示结束！\n");
 	CreatList(&L);
 	Print(&L);
 	GetElem(&L, 3);
@@ -189,6 +206,8 @@ int main() {
 	InsertList(&L, 2, 100);
 	Print(&L);
 	delList(&L, 4);
+	Print(&L);
+	Reserve(&L);
 	Print(&L);
 /*******************************/
 	/*LinkList L = InitList1();
